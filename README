@@ -1,0 +1,20 @@
+outApr20.root: 10,000 events for sampling calorimeter
+outApr21.root: 100,000 events for homogeneous calorimeter
+
+plot.py: Initial histogram plotter. Simple
+morePlot.py: Intermediate one...might be bad
+howboutnow.py: Plots three hists layered on top of each other
+
+----------------------------------------------
+
+crystalBall.py : Plots the energy resolution vs. energy using Crystal Ball fitting
+plot_energy_histograms_with_crystalball_fits.py : Shows the energy depositions and fit Crystall Ball curve
+plot_energy_histograms_with_fits.py : Gaussian fits to the energy deposition distribution
+old_scan_resolution.py :
+
+
+
+To enter the venv:
+`source /.plotStuff/bin/activate`
+To exit the venv:
+`deactivate` 
