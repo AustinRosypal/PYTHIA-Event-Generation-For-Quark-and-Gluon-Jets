@@ -1,20 +1,30 @@
-outApr20.root: 10,000 events for sampling calorimeter
-outApr21.root: 100,000 events for homogeneous calorimeter
+Create a .cc file
+Throw all of the Pythia code in the file
+To compile this C++ file and be able to use ROOT library features:
+  g++ -I/home/ajrosy/pythia8317/include eventgen.cc -o eventgen -lpythia8 -L/home/ajrosy/pythia8317/lib $(root-config --cflags --libs)
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/ajrosy/pythia8317/lib
+  ./filename
 
-plot.py: Initial histogram plotter. Simple
-morePlot.py: Intermediate one...might be bad
-howboutnow.py: Plots three hists layered on top of each other
+To send results to an output file:
+  ./filename > output.out
 
-----------------------------------------------
+----------------------------------------------------------------
+Useful Pythia commands:
 
-crystalBall.py : Plots the energy resolution vs. energy using Crystal Ball fitting
-plot_energy_histograms_with_crystalball_fits.py : Shows the energy depositions and fit Crystall Ball curve
-plot_energy_histograms_with_fits.py : Gaussian fits to the energy deposition distribution
-old_scan_resolution.py :
+#include "Pythia.h"
+#include <TCanvas.h>
+using namespace Pythia8;
 
+int main() {
+  Pythia pythia;
+  pythia.readString("Beams:eCM = 100.");
+  pythia.readString("another specification");
+  pythia.init();
 
+  pythia.next();
+  return 0;
+}
 
-To enter the venv:
-`source /.plotStuff/bin/activate`
-To exit the venv:
-`deactivate` 
+----------------------------------------------------------------
+PYTHIA has this subprocess:    gamma q -> q g (udscb)  with code number 284  and with estimated max cross section 6.814e-07 mb
+  Maybe focus on this?  It describes the electron emitting a virtual photon that interacts with one of the quarks of the proton.  This creates a quark and gluon, which can become jets.
